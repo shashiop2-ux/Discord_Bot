@@ -1,130 +1,150 @@
-🤖 SmurfxBot
+# 🤖 SmurfxBot
 
-A modern all-in-one Discord management bot built with discord.js v14.
+> A modern all-in-one Discord management bot built with **discord.js v14**.
 
-SmurfxBot combines intelligent moderation, advanced logging, server management, and a unique meme-karma system into one fast, lightweight package designed for modern Discord communities.
+SmurfxBot is designed to simplify Discord server management by combining powerful moderation tools, detailed activity logging, server management utilities, and a unique meme-karma system into one lightweight bot.
 
-✨ Highlights
-⚡ Modern Slash Command Interface
-🛡️ Intelligent Auto Moderation
-📊 Comprehensive Server Logging
-😂 Community Meme Karma System
-🗂️ Powerful Channel Management
-🎨 Interactive Dashboard-style Menus
-🚀 Lightweight & Fast
-🔒 Secure Permission Checks
-📈 Designed for Growing Communities
-🚀 Features
-🛡️ Auto Moderation
+---
 
-Protect your server without filling it with dozens of commands.
+## ✨ Features
 
-Features
-Custom Regex Filters
-Advanced Profanity Detection
-Obscenity Library Integration
-Detects bypass attempts
+- 🛡️ Advanced Auto Moderation
+- 📋 Detailed Server Logging
+- 🗂️ Channel Management
+- 🔥 Meme Karma System
+- 🧭 Interactive Help Menu
+- ⚡ Modern Slash Commands
+- 🎨 Dashboard-style Configuration
+- 🚀 Lightweight & Fast
+
+---
+
+# 🛡️ Auto Moderation
+
+Protect your server using an intelligent moderation system.
+
+### Features
+
+- Custom Regex Filters
+- Profanity Detection
+- Obscenity Detection
+- Detects bypass attempts (`f u c k`, `a$$`, etc.)
+- Allowlist & Blocklist
+- Configurable punishments
+- Interactive dashboard using Buttons & Modals
+
+Supported actions:
+
+- Warn
+- Delete Message
+- Timeout *(Coming Soon)*
+
+---
+
+# 📋 Logging
+
+Track almost everything happening in your Discord server.
+
+### Message Events
+
+- Message Delete
+- Message Edit
+- Attachment Logs
+
+### Channel Events
+
+- Channel Created
+- Channel Deleted
+- Channel Renamed
+- Category Updates
+- Permission Changes
+- Channel Moves
+
+### Audit Logs
+
+Automatically records:
+
+- Executor
+- Timestamp
+- Before & After Changes
+
+All logs are displayed using clean color-coded embeds.
+
+---
+
+# 🗂️ Channel Management
+
+Create and organize channels in seconds.
+
+### Supports
+
+- Text Channels
+- Voice Channels
+- Categories
+
+### Unicode Channel Styles
+
+Create stylish channel names using Unicode fonts.
 
 Examples:
 
-f u c k
-a$$
-b!tch
-Server Allowlist
-Server Blocklist
-Severity Levels
-Warn
-Delete Message
-Timeout
-Interactive Dashboard
-Button & Modal Based Configuration
-📋 Advanced Logging
-
-Track everything happening inside your server.
-
-Message Logs
-Message Delete
-Message Edit
-Attachment Logs
-Channel Logs
-Channel Creation
-Channel Deletion
-Channel Rename
-Category Changes
-Permission Updates
-Channel Movement
-Audit Logs
-
-Automatically detects
-
-Moderator
-Executor
-Timestamp
-Before / After Changes
-
-Everything is displayed using beautiful color-coded embeds.
-
-🗂️ Channel Manager
-
-Powerful server organization tools.
-
-Create
-Text Channels
-Voice Channels
-Categories
-Delete
-Single Channel
-Bulk Delete
-Category Delete
-Styling
-
-Create channel names using Unicode fonts.
-
-Examples
-
-𝗚𝗔𝗠𝗘𝗦
-𝑨𝒏𝒏𝒐𝒖𝒏𝒄𝒆𝒎𝒆𝒏𝒕𝒔
+```
+𝗔𝗻𝗻𝗼𝘂𝗻𝗰𝗲𝗺𝗲𝗻𝘁𝘀
+𝑮𝒂𝒎𝒆𝒔
 𝕸𝖊𝖒𝖊𝖘
+```
 
-Interactive menus mean no complicated command syntax.
+Bulk delete channels safely with confirmation prompts.
 
-🔥 Meme Karma System
+---
 
-A community engagement system designed specifically for meme servers.
+# 🔥 Meme Karma
 
-Automatically
-Adds 👍 👎 reactions
-Starts vote timer
-Calculates vote ratio
-Awards Karma
-Removes Karma for low-quality posts
-Includes
-Leaderboard
-User Profiles
-Karma Roles
-Hall of Fame
-Strict Meme Mode
+A complete engagement system for meme communities.
 
-Strict Mode automatically removes non-meme posts from designated channels.
+Features include:
 
-🧭 Interactive Help System
+- 👍 Automatic Voting
+- 👎 Downvote Detection
+- Karma Calculation
+- Leaderboards
+- User Profiles
+- Hall of Fame
+- Karma Rewards
+- Strict Meme Channels
 
-No more endless command lists.
+Messages that aren't memes can automatically be removed in Strict Mode.
 
+---
+
+# 🧭 Interactive Help
+
+Instead of remembering dozens of commands, simply run:
+
+```bash
 /help
+```
 
-Opens an interactive category browser where users can quickly navigate every feature using buttons.
+Browse every feature using buttons and interactive menus.
 
-🛠 Tech Stack
-Technology	Usage
-Node.js	Runtime
-discord.js v14	Discord API
-Obscenity	Smart Profanity Detection
-Cron Jobs	Scheduled Karma Processing
-SQLite / MongoDB / JSON	Database (Configurable)
-📂 Project Structure
+---
+
+# 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Node.js | Runtime |
+| discord.js v14 | Discord API |
+| Obscenity | Profanity Detection |
+| Cron Jobs | Scheduled Tasks |
+| SQLite / MongoDB / JSON | Storage |
+
+---
+
+# 📂 Project Structure
+
+```text
 discord/
-│
 ├── commands/
 │   ├── automod.js
 │   ├── channel.js
@@ -141,67 +161,100 @@ discord/
 ├── index.js
 ├── package.json
 └── .env
-⚙️ Installation
+```
 
-Clone the repository
+---
 
+# ⚙️ Installation
+
+Clone the repository.
+
+```bash
 git clone https://github.com/yourusername/SmurfxBot.git
+```
 
-Install dependencies
+Install dependencies.
 
+```bash
 npm install
+```
 
-Create a .env file
+Create a `.env` file.
 
+```env
 DISCORD_TOKEN=YOUR_TOKEN
 CLIENT_ID=YOUR_CLIENT_ID
 GUILD_ID=YOUR_TEST_SERVER
-Register Commands
+```
 
-Guild Commands (Instant)
+---
 
+# 🚀 Deploy Commands
+
+Guild Commands
+
+```bash
 npm run deploy
+```
 
 Global Commands
 
+```bash
 npm run deploy:global
+```
 
-If switching from guild commands to global commands:
+If switching from guild commands to global commands, clear old guild commands first.
 
+```bash
 node clear-guild-commands.js
-Start
+```
+
+---
+
+# ▶️ Start
+
+```bash
 node index.js
-🌐 Deployment
+```
+
+---
+
+# 🌐 Deployment
 
 SmurfxBot can run on any Node.js hosting platform.
 
-Recommended
-✅ Oracle Cloud Always Free
-✅ Railway
-✅ Render
-✅ Pella
-✅ VPS
-✅ Raspberry Pi
+Recommended hosts:
 
-Never run multiple instances of the bot simultaneously.
+- Oracle Cloud Free
+- Railway
+- Render
+- Pella
+- VPS
+- Raspberry Pi
 
-Running duplicate instances may cause moderation actions, logs, and events to execute more than once.
+> **Important**
+>
+> Never run multiple instances of the bot simultaneously, as duplicate instances can cause moderation actions and logs to trigger multiple times.
 
-📌 Planned Features
- Timeout Action for AutoMod
- Ticket System
- Reaction Roles
- Server Dashboard
- AI Moderation Assistant
- Welcome & Goodbye System
- Starboard
- Temporary Channels
- Music Module
- /conspiracy Fun Command
-❤️ Why SmurfxBot?
+---
 
-Unlike many Discord bots that rely on dozens of confusing subcommands, SmurfxBot focuses on a clean, interactive experience with buttons, menus, and modals. Every feature is built with usability, performance, and modern Discord design principles in mind.
+# 📌 Roadmap
 
-📄 License
+- [ ] Timeout Support
+- [ ] Ticket System
+- [ ] Reaction Roles
+- [ ] AI Moderation
+- [ ] Welcome Messages
+- [ ] Starboard
+- [ ] Temporary Channels
+- [ ] Dashboard Website
 
-MIT License (or your preferred license)
+---
+
+# 🤝 Contributing
+
+Pull requests are welcome.
+
+If you'd like to suggest a feature or report a bug, please open an Issue first.
+
+---
