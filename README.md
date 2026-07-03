@@ -1,137 +1,207 @@
-SmurfxBot
+🤖 SmurfxBot
 
-A custom Discord bot built with discord.js v14, featuring server management, auto-moderation, activity logging, and a community meme-karma system — all organized into clean, dashboard-style slash commands.
+A modern all-in-one Discord management bot built with discord.js v14.
 
+SmurfxBot combines intelligent moderation, advanced logging, server management, and a unique meme-karma system into one fast, lightweight package designed for modern Discord communities.
 
-✨ Features
+✨ Highlights
+⚡ Modern Slash Command Interface
+🛡️ Intelligent Auto Moderation
+📊 Comprehensive Server Logging
+😂 Community Meme Karma System
+🗂️ Powerful Channel Management
+🎨 Interactive Dashboard-style Menus
+🚀 Lightweight & Fast
+🔒 Secure Permission Checks
+📈 Designed for Growing Communities
+🚀 Features
+🛡️ Auto Moderation
 
-🗂️ Channel Management (/channel)
+Protect your server without filling it with dozens of commands.
 
+Features
+Custom Regex Filters
+Advanced Profanity Detection
+Obscenity Library Integration
+Detects bypass attempts
 
-Create channels and categories with custom Unicode font styling (bold, italic, script, fraktur, etc.)
-Delete single or multiple channels/categories at once (bulk delete with confirmation)
-Interactive menu-driven flow — no need to memorize subcommands
+Examples:
 
+f u c k
+a$$
+b!tch
+Server Allowlist
+Server Blocklist
+Severity Levels
+Warn
+Delete Message
+Timeout
+Interactive Dashboard
+Button & Modal Based Configuration
+📋 Advanced Logging
 
-🛡️ Auto-Moderation (/automod)
+Track everything happening inside your server.
 
+Message Logs
+Message Delete
+Message Edit
+Attachment Logs
+Channel Logs
+Channel Creation
+Channel Deletion
+Channel Rename
+Category Changes
+Permission Updates
+Channel Movement
+Audit Logs
 
-Custom regex filter system (add/remove/list patterns)
-Toxicity/profanity detection powered by the obscenity library (catches evasion tricks like f u c k or a$$)
-Per-server allowlist/blocklist for full control over what gets flagged
-Configurable actions per severity level (warn / delete / timeout)
-Single dashboard command with buttons and modals instead of a wall of subcommands
+Automatically detects
 
+Moderator
+Executor
+Timestamp
+Before / After Changes
 
-📋 Logging (/logging)
+Everything is displayed using beautiful color-coded embeds.
 
+🗂️ Channel Manager
 
-Message edit/delete logs (with content + attachments)
-Full channel & category change tracking (create, delete, rename, permission changes, moves) with executor info pulled from the audit log
-Color-coded embeds, fully toggleable per log type
+Powerful server organization tools.
 
+Create
+Text Channels
+Voice Channels
+Categories
+Delete
+Single Channel
+Bulk Delete
+Category Delete
+Styling
 
-🔥 Meme Karma System (/karma)
+Create channel names using Unicode fonts.
 
+Examples
 
-Dedicated meme channel with auto 👍/👎 reactions on every post
-Karma awarded/deducted based on vote ratio after a set voting window
-Leaderboard, user profiles, and karma-based role rewards
-"Strict mode" auto-deletes non-meme messages to keep the channel on-topic
-Hall of Fame reposting for top-voted memes
+𝗚𝗔𝗠𝗘𝗦
+𝑨𝒏𝒏𝒐𝒖𝒏𝒄𝒆𝒎𝒆𝒏𝒕𝒔
+𝕸𝖊𝖒𝖊𝖘
 
+Interactive menus mean no complicated command syntax.
 
-🧭 Help (/help)
+🔥 Meme Karma System
 
+A community engagement system designed specifically for meme servers.
 
-Single interactive command with category browsing (no more digging through dozens of top-level commands)
+Automatically
+Adds 👍 👎 reactions
+Starts vote timer
+Calculates vote ratio
+Awards Karma
+Removes Karma for low-quality posts
+Includes
+Leaderboard
+User Profiles
+Karma Roles
+Hall of Fame
+Strict Meme Mode
 
+Strict Mode automatically removes non-meme posts from designated channels.
 
+🧭 Interactive Help System
 
-🛠️ Tech Stack
+No more endless command lists.
 
+/help
 
-Runtime: Node.js
-Library: discord.js v14
-Moderation: obscenity (profanity/evasion detection)
-Scheduling: cron-based jobs (for karma voting windows)
-Storage: (fill in — e.g. SQLite / MongoDB / JSON)
+Opens an interactive category browser where users can quickly navigate every feature using buttons.
 
-
-
-📁 Project Structure
-
+🛠 Tech Stack
+Technology	Usage
+Node.js	Runtime
+discord.js v14	Discord API
+Obscenity	Smart Profanity Detection
+Cron Jobs	Scheduled Karma Processing
+SQLite / MongoDB / JSON	Database (Configurable)
+📂 Project Structure
 discord/
+│
 ├── commands/
 │   ├── automod.js
 │   ├── channel.js
 │   ├── help.js
 │   ├── karma.js
 │   └── logging.js
+│
 ├── events/
-├── data/
 ├── utils/
-├── deploy-commands.js      # registers slash commands (guild/global modes)
-├── clear-guild-commands.js # clears leftover guild-specific commands
-├── index.js                # bot entry point
+├── data/
+│
+├── deploy-commands.js
+├── clear-guild-commands.js
+├── index.js
 ├── package.json
-└── .env                    # secrets (not committed)
+└── .env
+⚙️ Installation
 
+Clone the repository
 
-⚙️ Setup
+git clone https://github.com/yourusername/SmurfxBot.git
 
+Install dependencies
 
-Clone/download the project and install dependencies:
+npm install
 
+Create a .env file
 
-bash   npm install
+DISCORD_TOKEN=YOUR_TOKEN
+CLIENT_ID=YOUR_CLIENT_ID
+GUILD_ID=YOUR_TEST_SERVER
+Register Commands
 
+Guild Commands (Instant)
 
-Create a .env file with the following:
+npm run deploy
 
+Global Commands
 
-   DISCORD_TOKEN=your_bot_token
-   CLIENT_ID=your_application_client_id
-   GUILD_ID=your_test_server_id
+npm run deploy:global
 
+If switching from guild commands to global commands:
 
-Deploy slash commands:
+node clear-guild-commands.js
+Start
+node index.js
+🌐 Deployment
 
+SmurfxBot can run on any Node.js hosting platform.
 
-bash   npm run deploy          # guild-only, instant — for testing
-   npm run deploy:global   # global — works in every server (takes up to 1hr to propagate)
+Recommended
+✅ Oracle Cloud Always Free
+✅ Railway
+✅ Render
+✅ Pella
+✅ VPS
+✅ Raspberry Pi
 
-⚠️ Don't run both without clearing one first — leftover guild commands will show up as duplicates alongside global ones. Use node clear-guild-commands.js to wipe guild-specific commands once you've gone global.
+Never run multiple instances of the bot simultaneously.
 
+Running duplicate instances may cause moderation actions, logs, and events to execute more than once.
 
-Start the bot:
+📌 Planned Features
+ Timeout Action for AutoMod
+ Ticket System
+ Reaction Roles
+ Server Dashboard
+ AI Moderation Assistant
+ Welcome & Goodbye System
+ Starboard
+ Temporary Channels
+ Music Module
+ /conspiracy Fun Command
+❤️ Why SmurfxBot?
 
-
-bash   node index.js
-
-
-🌐 Hosting
-
-Currently deployable on any Node.js-compatible host. Recommended for 24/7 uptime:
-
-
-Pella — free tier with GitHub-based deploys
-Oracle Cloud Always Free — permanent free VM, more technical setup
-
-
-⚠️ Only run one instance of the bot at a time (local OR hosted, never both) — running duplicates causes every event (logs, automod actions, etc.) to fire multiple times.
-
-
-📌 Roadmap / Ideas
-
-
- Fix automod timeout action (currently deletes flagged messages but doesn't apply timeout)
- Reaction roles dashboard
- Ticket system
- /conspiracy — fun activity-pattern-based "conspiracy theory" generator for members
-
-
+Unlike many Discord bots that rely on dozens of confusing subcommands, SmurfxBot focuses on a clean, interactive experience with buttons, menus, and modals. Every feature is built with usability, performance, and modern Discord design principles in mind.
 
 📄 License
 
-(Add your license here, e.g. MIT)
+MIT License (or your preferred license)
