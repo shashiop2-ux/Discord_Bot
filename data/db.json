@@ -1,0 +1,133 @@
+{
+  "guilds": {
+    "790200663102586910": {
+      "logChannelId": "879783303517970453",
+      "autoMod": {
+        "filters": [
+          {
+            "regex": "nigga",
+            "action": "timeout"
+          },
+          {
+            "regex": "niga",
+            "action": "warn"
+          }
+        ],
+        "spamThreshold": 75,
+        "enabled": false,
+        "blockedWords": [],
+        "allowedWords": []
+      },
+      "autoResponders": [
+        {
+          "id": "youtube-live-stream",
+          "trigger": "stream",
+          "response": "{youtube_live}",
+          "matchType": "contains",
+          "useEmbed": false
+        }
+      ],
+      "logging": {
+        "channelsEnabled": true
+      },
+      "karma": {
+        "channelId": null,
+        "upEmoji": "👍",
+        "downEmoji": "👎",
+        "hallOfFameChannelId": null,
+        "rewards": [],
+        "strictMode": false
+      },
+      "memes": {},
+      "userKarma": {}
+    },
+    "837568082465390632": {
+      "logChannelId": null,
+      "autoMod": {
+        "filters": [],
+        "spamThreshold": 75,
+        "enabled": false,
+        "blockedWords": [],
+        "allowedWords": []
+      },
+      "autoResponders": [
+        {
+          "id": "youtube-live-stream",
+          "trigger": "stream",
+          "response": "{youtube_live}",
+          "matchType": "contains",
+          "useEmbed": false
+        }
+      ],
+      "karma": {
+        "channelId": null,
+        "upEmoji": "👍",
+        "downEmoji": "👎",
+        "hallOfFameChannelId": null,
+        "rewards": [],
+        "strictMode": false
+      },
+      "memes": {},
+      "userKarma": {}
+    },
+    "953939747821211690": {
+      "logChannelId": "1096525151866200094",
+      "autoMod": {
+        "filters": [
+          {
+            "regex": "nigga",
+            "action": "timeout"
+          },
+          {
+            "regex": "niga",
+            "action": "warn"
+          },
+          {
+            "regex": "nega",
+            "action": "warn"
+          },
+          {
+            "regex": "nigger",
+            "action": "timeout"
+          }
+        ],
+        "spamThreshold": 75,
+        "enabled": true,
+        "blockedWords": [],
+        "allowedWords": [
+          "shit"
+        ]
+      },
+      "autoResponders": [
+        {
+          "id": "youtube-live-stream",
+          "trigger": "stream",
+          "response": "{youtube_live}",
+          "matchType": "contains",
+          "useEmbed": false
+        }
+      ],
+      "logging": {
+        "channelsEnabled": true
+      },
+      "karma": {
+        "channelId": "1008798438747549798",
+        "upEmoji": "👍",
+        "downEmoji": "👎",
+        "hallOfFameChannelId": null,
+        "rewards": [],
+        "strictMode": true
+      },
+      "memes": {
+        "1522385645946011818": {
+          "authorId": "993415303746818109",
+          "channelId": "1008798438747549798",
+          "timestamp": 1783035422787,
+          "processed": false
+        }
+      },
+      "userKarma": {}
+    }
+  },
+  "schedules": []
+}

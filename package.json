@@ -1,0 +1,19 @@
+{
+  "name": "discord-hi-bot",
+  "version": "1.0.0",
+  "description": "An always-on Discord bot with a /hi slash command and extensible command structure.",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "deploy:test": "node deploy-commands.js --test",
+    "deploy:live": "node deploy-commands.js --live",
+    "deploy:status": "node deploy-commands.js --status"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "node-cron": "^4.5.0",
+    "obscenity": "^0.4.6"
+  }
+}
