@@ -1,58 +1,137 @@
-# Discord "hi" Bot
+SmurfxBot
 
-An always-on Discord bot built with [discord.js](https://discord.js.org/). It:
+A custom Discord bot built with discord.js v14, featuring server management, auto-moderation, activity logging, and a community meme-karma system — all organized into clean, dashboard-style slash commands.
 
-- Registers a `/hi [user]` slash command anyone in your server can use
-- Registers a `/ping` command as a second example, to show how to add more
-- On startup, automatically DMs "hi" to a specific username (set via `GREET_USERNAME`)
 
-## 1. Create the bot in Discord's Developer Portal
+✨ Features
 
-1. Go to https://discord.com/developers/applications and click **New Application**.
-2. Give it a name, then go to the **Bot** tab.
-3. Click **Reset Token** to get your bot token — save it, you'll need it below.
-4. Under **Privileged Gateway Intents**, enable **Server Members Intent** (required to look up `c_a_l_l` by username).
-5. Go to **OAuth2 → URL Generator**:
-   - Scopes: check `bot` and `applications.commands`
-   - Bot Permissions: check `Send Messages`, `Read Messages/View Channels`
-   - Copy the generated URL, open it in your browser, and invite the bot to your server.
-6. On the **General Information** page, copy your **Application ID** (this is your `CLIENT_ID`).
-7. In Discord, enable Developer Mode (User Settings → Advanced), then right-click your server icon → **Copy Server ID** (this is your `GUILD_ID`).
+🗂️ Channel Management (/channel)
 
-## 2. Configure the project
 
-```bash
-cd discord-bot
-cp .env.example .env
-```
+Create channels and categories with custom Unicode font styling (bold, italic, script, fraktur, etc.)
+Delete single or multiple channels/categories at once (bulk delete with confirmation)
+Interactive menu-driven flow — no need to memorize subcommands
 
-Edit `.env` and fill in:
-- `DISCORD_TOKEN` — the bot token from step 3 above
-- `CLIENT_ID` — your Application ID
-- `GUILD_ID` — your server ID
-- `GREET_USERNAME` — the exact Discord **username** (not nickname) to auto-DM "hi" on startup, e.g. `c_a_l_l`
 
-## 3. Install and run
+🛡️ Auto-Moderation (/automod)
 
-```bash
-npm install
-npm run deploy   # registers the /hi and /ping slash commands to your server
-npm start        # starts the bot and keeps it running
-```
 
-You should see `Logged in as YourBot#1234` in the console. If `GREET_USERNAME` matches someone in the server, they'll get a DM saying "hi 👋" shortly after startup.
+Custom regex filter system (add/remove/list patterns)
+Toxicity/profanity detection powered by the obscenity library (catches evasion tricks like f u c k or a$$)
+Per-server allowlist/blocklist for full control over what gets flagged
+Configurable actions per severity level (warn / delete / timeout)
+Single dashboard command with buttons and modals instead of a wall of subcommands
 
-## 4. Keeping it running 24/7
 
-`npm start` only runs while your terminal is open. To keep the bot online continuously, either:
-- Run it on a small always-on server/VPS with a process manager like [pm2](https://pm2.keymetrics.io/) (`pm2 start index.js`), or
-- Deploy it to a host like Railway, Render, or Fly.io.
+📋 Logging (/logging)
 
-## Adding more commands
 
-Drop a new file in `commands/`, following the shape of `commands/hi.js`, then run `npm run deploy` again to register it. `index.js` loads every file in that folder automatically — no other code changes needed.
+Message edit/delete logs (with content + attachments)
+Full channel & category change tracking (create, delete, rename, permission changes, moves) with executor info pulled from the audit log
+Color-coded embeds, fully toggleable per log type
 
-## Notes
 
-- A user's DMs must allow messages from server members for the auto-greet to work; if their DMs are closed, you'll see an error logged instead of a crash.
-- Keep your `.env` file private — anyone with your bot token can control your bot.
+🔥 Meme Karma System (/karma)
+
+
+Dedicated meme channel with auto 👍/👎 reactions on every post
+Karma awarded/deducted based on vote ratio after a set voting window
+Leaderboard, user profiles, and karma-based role rewards
+"Strict mode" auto-deletes non-meme messages to keep the channel on-topic
+Hall of Fame reposting for top-voted memes
+
+
+🧭 Help (/help)
+
+
+Single interactive command with category browsing (no more digging through dozens of top-level commands)
+
+
+
+🛠️ Tech Stack
+
+
+Runtime: Node.js
+Library: discord.js v14
+Moderation: obscenity (profanity/evasion detection)
+Scheduling: cron-based jobs (for karma voting windows)
+Storage: (fill in — e.g. SQLite / MongoDB / JSON)
+
+
+
+📁 Project Structure
+
+discord/
+├── commands/
+│   ├── automod.js
+│   ├── channel.js
+│   ├── help.js
+│   ├── karma.js
+│   └── logging.js
+├── events/
+├── data/
+├── utils/
+├── deploy-commands.js      # registers slash commands (guild/global modes)
+├── clear-guild-commands.js # clears leftover guild-specific commands
+├── index.js                # bot entry point
+├── package.json
+└── .env                    # secrets (not committed)
+
+
+⚙️ Setup
+
+
+Clone/download the project and install dependencies:
+
+
+bash   npm install
+
+
+Create a .env file with the following:
+
+
+   DISCORD_TOKEN=your_bot_token
+   CLIENT_ID=your_application_client_id
+   GUILD_ID=your_test_server_id
+
+
+Deploy slash commands:
+
+
+bash   npm run deploy          # guild-only, instant — for testing
+   npm run deploy:global   # global — works in every server (takes up to 1hr to propagate)
+
+⚠️ Don't run both without clearing one first — leftover guild commands will show up as duplicates alongside global ones. Use node clear-guild-commands.js to wipe guild-specific commands once you've gone global.
+
+
+Start the bot:
+
+
+bash   node index.js
+
+
+🌐 Hosting
+
+Currently deployable on any Node.js-compatible host. Recommended for 24/7 uptime:
+
+
+Pella — free tier with GitHub-based deploys
+Oracle Cloud Always Free — permanent free VM, more technical setup
+
+
+⚠️ Only run one instance of the bot at a time (local OR hosted, never both) — running duplicates causes every event (logs, automod actions, etc.) to fire multiple times.
+
+
+📌 Roadmap / Ideas
+
+
+ Fix automod timeout action (currently deletes flagged messages but doesn't apply timeout)
+ Reaction roles dashboard
+ Ticket system
+ /conspiracy — fun activity-pattern-based "conspiracy theory" generator for members
+
+
+
+📄 License
+
+(Add your license here, e.g. MIT)
